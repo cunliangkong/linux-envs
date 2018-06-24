@@ -89,3 +89,4 @@ then
     If it didn't work, please contact your Admin to install these softwares for you.
     After that, run this script again will work.
     """
+fi
