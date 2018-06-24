@@ -1,0 +1,74 @@
+" Settings
+" General
+set number
+set linebreak
+set showbreak=+++
+set textwidth=100
+set showmatch
+set smartcase
+set ignorecase
+set incsearch
+set autoindent
+set expandtab
+set shiftwidth=4
+set smartindent
+set smarttab
+set softtabstop=4
+set term=screen-256color
+let g:monokai_original=1
+let g:rehash256=1
+set background=dark
+syntax enable
+colorscheme monokai
+let &termencoding=&encoding
+set fileencodings=utf-8,gb18030,gbk,gb2312,big5
+set encoding=utf-8
+set langmenu=en_US.UTF-8
+language message en_US.UTF-8
+
+" Advanced
+set ruler
+set autochdir
+set undolevels=1000
+set backspace=indent,eol,start
+
+" YouCompleteMe
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf=0
+set completeopt=longest,menu
+let g:ycm_path_to_python_interpreter='python'
+let g:ycm_seed_identifiers_with_syntax=1
+let g:ycm_complete_in_comments=1
+let g:ycm_collect_identifiers_from_comments_and_strings = 0
+let g:ycm_min_num_of_chars_for_completion=2
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_cache_omnifunc=0
+let g:ycm_complete_in_strings = 1
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" vim-powerline
+set laststatus=2
+let g:Powerline_symbols= 'unicode'
+
+" nerdtree\
+map <F2> :NERDTreeToggle<CR>
+let NERDTreeChDirMode=1
+let NERDTreeShowBookmarks=1
+let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
+let NERDTreeWinSize=25
+
+"缩进指示线"
+let g:indentLine_char='┆'
+let g:indentLine_enabled = 1
+
+"autopep8设置"
+let g:autopep8_disable_show_diff=1
+autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
+
+" nerdcommenter
+let mapleader=','
+map <F4> <leader>ci <CR>
+
+" auto-pairs
+let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"'}
+
