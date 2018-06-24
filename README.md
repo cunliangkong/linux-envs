@@ -1,6 +1,6 @@
 ## USAGE
 
-```shell
+```bash
 chmod +x setup.sh
 ./setup.sh
 ```
