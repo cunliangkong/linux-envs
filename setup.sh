@@ -52,7 +52,7 @@ then
     vim +PluginInstall +qall
     cd ~/.vim/bundle/YouCompleteMe
     ./install.py --clang-completer
-    $(cat ./vimsettings >> ~/.vimrc)
+    $(cat .vimsettings >> ~/.vimrc)
     cd -
 else
     echo "Will not setup vim."
