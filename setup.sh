@@ -34,7 +34,6 @@ then
         chsh -s /usr/bin/zsh
     fi
     cp zshrc ~/.zshrc
-    exec zsh
 else
     echo "Will not setup zsh."
 fi
@@ -46,6 +45,7 @@ then
     if [ $permit = "yes" ]
     then
         sudo apt-get install vim
+        sudo apt-get install cmake
     fi
     $(cat ./vimvundle > ~/.vimrc)
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -89,4 +89,9 @@ then
     If it didn't work, please contact your Admin to install these softwares for you.
     After that, run this script again will work.
     """
+fi
+
+if [ $answer_zsh = yes ]
+then
+    exec zsh
 fi
