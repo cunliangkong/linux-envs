@@ -1,5 +1,7 @@
 " Settings
 " General
+set cursorline
+set cursorcolumn
 set number
 set linebreak
 set showbreak=+++
