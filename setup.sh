@@ -51,7 +51,7 @@ then
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     vim +PluginInstall +qall
     cd ~/.vim/bundle/YouCompleteMe
-    ./install.py --clang-completer
+    python3 install.py --clang-completer
     cd -
     $(cat ./vimsettings >> ~/.vimrc)
 else
