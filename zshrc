@@ -176,13 +176,3 @@ setopt HIST_VERIFY # Don't execute immediately upon history expansion.
 # ignore complition
 zstyle ':completion:*:complete:-command-:*:*' ignored-patterns '*.pdf|*.exe|*.dll'
 zstyle ':completion:*:*sh:*:' tag-order files
-
-source /usr/local/bin/virtualenvwrapper.sh
-
-# added by Anaconda3 installer
-export PATH="/home/fqn/anaconda3/bin:$PATH"
-
-# cuda
-export CUDA_HOME=/usr/local/cuda-8.0
-export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH
-export PATH=/usr/local/cuda-8.0/bin:$PATH
