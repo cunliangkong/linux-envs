@@ -45,7 +45,7 @@ then
     if [ $permit = "yes" ]
     then
         sudo apt-get install vim
-        sudo apt-get install cmake
+        sudo apt-get install cmake build-essential
     fi
     $(cat ./vimvundle > ~/.vimrc)
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
