@@ -16,7 +16,7 @@ query() {
 }
 
 u_group=`groups ${USER}`
-if [[ ${u_group} =~ "sudo" || ${u_group} =~ "root" ]
+if [[ ${u_group} =~ "sudo" || ${u_group} =~ "root" ]]
 then
     permit="yes"
 else
