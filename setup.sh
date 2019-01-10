@@ -15,8 +15,8 @@ query() {
     echo $answer
 }
 
-u_group=`groups ${USERNAME}`
-if [[ ${u_group} =~ "sudo" ]]
+u_group=`groups ${USER}`
+if [[ ${u_group} =~ "sudo" ] || ${u_group} =~ "root" ]
 then
     permit="yes"
 else
