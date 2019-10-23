@@ -454,7 +454,7 @@ while :; do
     echo " 2. 自定义安装 & 配置"
     echo
     echo
-    read -p "$(echo -e "请选择 [${magenta}1-2$none]： ")" choose
+    read -p "$(echo -e "请选择 [${magenta}1-2$none] 或按 [${magenta}ctrl + c$none] 退出：")" choose
     case $choose in
     1)
         install_all
