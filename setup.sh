@@ -368,7 +368,7 @@ install_select() {
         echo
         echo " 6. 仅配置 tmux"
         echo
-        echo " 7. 安装 & 配置 miniconda3（包含 8,9）"
+        echo " 7. 安装 & 配置 miniconda3（包含 8,9 步骤）"
         echo
         echo " 8. 切换 conda 源"
         echo
