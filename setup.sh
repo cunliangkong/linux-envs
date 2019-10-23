@@ -212,6 +212,7 @@ config_vim() {
         cp settings/vimvundle $HOME/.vimrc
         vim +PlugInstall +qall
         cat settings/vimsettings >> $HOME/.vimrc
+        cp $HOME/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py $HOME
         echo
         echo "vim 已完成配置"
         echo
