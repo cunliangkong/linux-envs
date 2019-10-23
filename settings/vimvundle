@@ -1,0 +1,22 @@
+" version: 0.1.0
+" Vim-Plug Section Start
+set nocompatible
+filetype off
+call plug#begin('~/.vim/plugged')
+Plug 'ycm-core/YouCompleteMe'
+" Plug 'https://gitee.com/mirrors/youcompleteme.git'
+Plug 'vim-airline/vim-airline'
+Plug 'scrooloose/nerdtree'
+Plug 'crusoexia/vim-monokai'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tell-k/vim-autopep8'
+Plug 'scrooloose/nerdcommenter'
+Plug 'Yggdroot/indentLine'
+Plug 'vim-scripts/taglist.vim'
+Plug 'jdpxiaoming/winmanager'
+
+" ADD YOUR PLUGIN
+call plug#end()
+filetype plugin indent on
+" Vundle Section End
+

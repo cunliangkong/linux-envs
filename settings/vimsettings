@@ -38,7 +38,7 @@ set backspace=indent,eol,start
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=0
 set completeopt=longest,menu
-let g:ycm_path_to_python_interpreter='python3'
+let g:ycm_path_to_python_interpreter='/usr/bin/python3'
 let g:ycm_seed_identifiers_with_syntax=1
 let g:ycm_complete_in_comments=1
 let g:ycm_collect_identifiers_from_comments_and_strings = 0
@@ -48,16 +48,46 @@ let g:ycm_cache_omnifunc=0
 let g:ycm_complete_in_strings = 1
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-" vim-powerline
-set laststatus=2
-let g:Powerline_symbols= 'unicode'
+" vim-airline
+"let g:airline_theme="luna" 
+let g:airline_powerline_fonts = 1   
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+
+"设置切换Buffer快捷键"
+nnoremap <C-N> :bn<CR>
+nnoremap <C-P> :bp<CR>
+
+" 关闭状态显示空白符号计数,这个对我用处不大"
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#whitespace#symbol = '!'
 
 " nerdtree\
-map <F2> :NERDTreeToggle<CR>
+"map <F2> :NERDTreeToggle<CR>
 let NERDTreeChDirMode=1
 let NERDTreeShowBookmarks=1
 let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
 let NERDTreeWinSize=25
+
+" TAGLIST
+let Tlist_Auto_Open = 0
+let Tlist_Ctags_Cmd = "ctags"
+let Tlist_Show_One_File = 1
+
+" winmanager配置
+let g:NERDTree_title = 'NERD Tree'
+let g:winManagerWindowLayout = 'NERDTree|TagList'
+function! NERDTree_Start()
+    exec 'NERDTree'
+endfunction
+
+function! NERDTree_IsValid()
+    return 1
+endfunction
+
+" 绑定F2到winmanager
+"nmap <silent> <F2> :WMToggle<CR>
+nmap <silent> <F2> :if IsWinManagerVisible() <BAR> WMToggle<CR> <BAR> else <BAR> WMToggle<CR>:q<CR> endif <CR>
 
 "缩进指示线"
 let g:indentLine_char='┆'
