@@ -28,7 +28,7 @@ else
 fi
 
 pause() {
-    read -rsp "$(echo -e "按 ${green}Enter${none} 继续.... 或按 ${red}Ctrl + C${none} 取消")" -d $'\n'
+    read -rsp "$(echo -e "按 ${green}Enter${none} 继续.... 或按 ${red}Ctrl + C${none} 退出")" -d $'\n'
     echo
 }
 
@@ -377,7 +377,7 @@ install_select() {
         echo
         echo " 10. 切换 apt 源（管理员权限）"
         echo
-        read -p "$(echo -e "请选择 [${magenta}1-10$none] 或按 [${magenta}ctrl + c$none] 退出： ")" choose
+        read -p "$(echo -e "请选择 [${magenta}1-10$none] 或按 ${magenta}ctrl + c$none 退出： ")" choose
         case $choose in
         1)
             install_after_check zsh
@@ -454,7 +454,7 @@ while :; do
     echo " 2. 自定义安装 & 配置"
     echo
     echo
-    read -p "$(echo -e "请选择 [${magenta}1-2$none] 或按 [${magenta}ctrl + c$none] 退出：")" choose
+    read -p "$(echo -e "请选择 [${magenta}1-2$none] 或按 ${magenta}ctrl + c$none 退出：")" choose
     case $choose in
     1)
         install_all
