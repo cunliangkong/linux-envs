@@ -3,8 +3,7 @@
 set nocompatible
 filetype off
 call plug#begin('~/.vim/plugged')
-Plug 'ycm-core/YouCompleteMe'
-" Plug 'https://gitee.com/mirrors/youcompleteme.git'
+Plug 'https://gitee.com/mirrors/youcompleteme.git'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
 Plug 'crusoexia/vim-monokai'

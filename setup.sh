@@ -40,8 +40,8 @@ check() {
     not_installed=()
     for app in $*
     do
-        stat=`dpkg --get-selections | grep $app`
-        if [[ $stat == '' ]]
+        dpkg --get-selections | grep $app > /dev/null
+        if [[ $? -eq 1 ]]
         then
             not_installed[${#not_installed[*]}]=$app
         fi
@@ -198,10 +198,10 @@ config_vim() {
         fi
 
         curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
-            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+            https://gitee.com/styxjedi/vim-plug/raw/master/plug.vim
         mkdir -p $HOME/.vim/plugged
-        git -C $HOME/.vim/plugged clone https://github.com/ycm-core/YouCompleteMe.git
-        cd $HOME/.vim/plugged/YouCompleteMe
+        git -C $HOME/.vim/plugged clone https://gitee.com/mirrors/youcompleteme.git
+        cd $HOME/.vim/plugged/youcompleteme
         git submodule update --init
         sed -i "s@go.googlesource.com@github.com/golang@g" ./third_party/ycmd/.gitmodules
         export GO111MODULE=on
@@ -234,7 +234,12 @@ install_miniconda() {
     echo
     if [[ -f "$HOME/.zshenv" ]]
     then
-        is_set=`grep -c ">>> conda initialize >>>" $HOME/.zshenv`
+        if [[ `grep -c "conda initialize" $HOME/.zshenv` -eq 0 ]]
+        then
+            is_set=0
+        else
+            is_set=1
+        fi
     else
         is_set=0
     fi
@@ -242,12 +247,36 @@ install_miniconda() {
     if [[ $is_set -eq 0 ]]
     then
         read -p "$(echo -e "请输入刚才安装 ${magenta}miniconda3$none 的路径（默认为$HOME/miniconda3）：")" conda_path
-        output=`$conda_path/bin/conda zsh -d -v`
-        echo $output | grep ^+ | awk '{gsub(/+/, ""); print $0;}' >> $HOME/.zshenv
+        if [[ $conda_path == "" ]]
+        then
+            conda_path=$HOME/miniconda3
+        fi
+        $conda_path/bin/conda init zsh -d -v | grep ^+ | tr -d '+' | tr -s '\n' >> $HOME/.zshenv
     fi
 }
 
 config_miniconda() {
+    if [[ -f "$HOME/.zshenv" ]]
+    then
+        if [[ `grep -c "conda initialize" $HOME/.zshenv` -eq 0 ]]
+        then
+            is_set=0
+        else
+            is_set=1
+        fi
+    else
+        is_set=0
+    fi
+
+    if [[ $is_set -eq 0 ]]
+    then
+        read -p "$(echo -e "请输入 ${magenta}miniconda3$none 的安装路径（默认为$HOME/miniconda3）：")" conda_path
+        if [[ $conda_path == "" ]]
+        then
+            conda_path=$HOME/miniconda3
+        fi
+        $conda_path/bin/conda init zsh -d -v | grep ^+ | tr -d '+' | tr -s '\n' >> $HOME/.zshenv
+    fi
     echo
     echo "切换 conda 源至 mirror.tuna.tsinghua.edu.cn..."
     echo
@@ -371,7 +400,7 @@ install_select() {
         echo
         echo " 7. 安装 & 配置 miniconda3（包含 8,9 步骤）"
         echo
-        echo " 8. 切换 conda 源"
+        echo " 8. 仅配置 miniconda3"
         echo
         echo " 9. 切换 pip 源"
         echo
