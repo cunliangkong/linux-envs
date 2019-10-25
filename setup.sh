@@ -114,17 +114,21 @@ config_zsh() {
             echo
             echo "您的 zsh 配置文件已是最新版本，是否重新配置？"
             echo
-            echo " 1. 是"
-            echo
-            echo " 2. 否"
-            echo
-            read -p "$(echo -e "请选择 [${magenta}1-2$none]： ")" choose
-            case $choose in
-                1)
+            read -p "$(echo -e "是否确认？(Y/N) ：")" is_confirm
+            case $is_confirm in
+                Y)
                     do_config=1
                     break
                     ;;
-                2)
+                y)
+                    do_config=1
+                    break
+                    ;;
+                N)
+                    do_config=0
+                    break
+                    ;;
+                n)
                     do_config=0
                     break
                     ;;
@@ -164,17 +168,21 @@ config_vim() {
             echo
             echo "您的 vim 配置文件已是最新版本，是否重新配置？"
             echo
-            echo " 1. 是"
-            echo
-            echo " 2. 否"
-            echo
-            read -p "$(echo -e "请选择 [${magenta}1-2$none]： ")" choose
-            case $choose in
-                1)
+            read -p "$(echo -e "是否确认？(Y/N) ：")" is_confirm
+            case $is_confirm in
+                Y)
                     do_config=1
                     break
                     ;;
-                2)
+                y)
+                    do_config=1
+                    break
+                    ;;
+                N)
+                    do_config=0
+                    break
+                    ;;
+                n)
                     do_config=0
                     break
                     ;;
@@ -212,7 +220,7 @@ config_vim() {
         cp settings/vimvundle $HOME/.vimrc
         vim +PlugInstall +qall
         cat settings/vimsettings >> $HOME/.vimrc
-        cp $HOME/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py $HOME
+        cp $HOME/.vim/plugged/youcompleteme/third_party/ycmd/.ycm_extra_conf.py $HOME
         echo
         echo "vim 已完成配置"
         echo
