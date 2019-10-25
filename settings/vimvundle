@@ -12,8 +12,10 @@ Plug 'tell-k/vim-autopep8'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Yggdroot/indentLine'
 Plug 'vim-scripts/taglist.vim'
-Plug 'jdpxiaoming/winmanager'
+"Plug 'jdpxiaoming/winmanager'
 Plug 'Chiel92/vim-autoformat'
+" ADD YOUR PLUGIN
 call plug#end()
 filetype plugin indent on
-" Vundle Section End
+" Vim-Plug Section End
+

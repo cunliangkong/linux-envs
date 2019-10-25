@@ -27,6 +27,9 @@ set fileencodings=utf-8,gb18030,gbk,gb2312,big5
 set encoding=utf-8
 set langmenu=en_US.UTF-8
 language message en_US.UTF-8
+let mapleader = "\<space>"
+nnoremap <leader>q :wqa
+nnoremap <leader>w :w
 
 " Advanced
 set ruler
@@ -62,46 +65,33 @@ nnoremap <C-P> :bp<CR>
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#whitespace#symbol = '!'
 
-" nerdtree\
-        "map <F2> :NERDTreeToggle<CR>
-        let NERDTreeChDirMode=1
-        let NERDTreeShowBookmarks=1
-        let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
-        let NERDTreeWinSize=25
+" nerdtree
+nnoremap <leader>n <ESC>:NERDTreeToggle<CR>
+let NERDTreeChDirMode=1
+let NERDTreeShowBookmarks=1
+let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
+let NERDTreeWinSize=25
 
-        " TAGLIST
-        let Tlist_Auto_Open = 0
-        let Tlist_Ctags_Cmd = "ctags"
-        let Tlist_Show_One_File = 1
+" TAGLIST
+let Tlist_Auto_Open = 0
+let Tlist_Ctags_Cmd = "ctags"
+let Tlist_Show_One_File = 1
+nnoremap <leader>t <ESC>:TlistToggle<CR>
 
-        " winmanager配置
-        let g:NERDTree_title = 'NERD Tree'
-    let g:winManagerWindowLayout = 'NERDTree|TagList'
-function! NERDTree_Start()
-    exec 'NERDTree'
-    endfunction
+"缩进指示线"
+let g:indentLine_char='┆'
+let g:indentLine_enabled = 1
 
-function! NERDTree_IsValid()
-    return 1
-    endfunction
+" nerdcommenter
+"let mapleader = ","
+map <F4> <leader>ci <CR>
 
-    " 绑定F2到winmanager
-    nmap <silent> <F2> :WMToggle<CR>
-    " 如果按 F2 之后出现空白 buffer，注释掉上一行并使用下一行
-    " nmap <silent> <F2> :if IsWinManagerVisible() <BAR> WMToggle<CR> <BAR> else <BAR> WMToggle<CR>:q<CR> endif <CR>
+" auto-pairs
+let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"'}
 
-    "缩进指示线"
-    let g:indentLine_char='┆'
-    let g:indentLine_enabled = 1
+" formatter
+let g:formatter_yapf_style = 'pep8'
+noremap <F3> :Autoformat<CR>
+noremap <leader>f :Autoformat<CR>
+au BufWrite * :Autoformat
 
-    " nerdcommenter
-    let mapleader=','
-    map <F4> <leader>ci <CR>
-
-    " auto-pairs
-    let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"'}
-
-    " formatter
-    let g:formatter_yapf_style = 'pep8'
-    noremap <F3> :Autoformat<CR>
-    au BufWrite * :Autoformat
