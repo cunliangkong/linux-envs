@@ -81,21 +81,18 @@ function! NERDTree_Start()
     exec 'NERDTree'
     endfunction
 
-    " function! NERDTree_IsValid()
-    "     return 1
-    " endfunction
+function! NERDTree_IsValid()
+    return 1
+    endfunction
 
     " 绑定F2到winmanager
     nmap <silent> <F2> :WMToggle<CR>
+    " 如果按 F2 之后出现空白 buffer，注释掉上一行并使用下一行
     " nmap <silent> <F2> :if IsWinManagerVisible() <BAR> WMToggle<CR> <BAR> else <BAR> WMToggle<CR>:q<CR> endif <CR>
 
     "缩进指示线"
     let g:indentLine_char='┆'
     let g:indentLine_enabled = 1
-
-    "autopep8设置"
-    let g:autopep8_disable_show_diff=1
-    autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
 
     " nerdcommenter
     let mapleader=','
@@ -104,3 +101,7 @@ function! NERDTree_Start()
     " auto-pairs
     let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"'}
 
+    " formatter
+    let g:formatter_yapf_style = 'pep8'
+    noremap <F3> :Autoformat<CR>
+    au BufWrite * :Autoformat

@@ -20,7 +20,7 @@ cmd="apt-get"
 if [[ $(command -v apt-get) ]] && [[ $(command -v systemctl) ]]; then
     echo
 else
-    echo -e " 
+    echo -e "
     这个${red}辣鸡脚本${none}目前还不支持你的系统 ${yellow}(-_-)${none}
 
     Note: For Ubuntu 16+ only.
@@ -51,24 +51,24 @@ check() {
 
 check_app() {
     case $1 in
-    zsh)
-        apps=(zsh curl wget)
-        check ${apps[*]}
-        ;;
-    vim)
-        apps=(vim gcc g++ cmake build-essential python3-dev
+        zsh)
+            apps=(zsh curl wget)
+            check ${apps[*]}
+            ;;
+        vim)
+            apps=(vim gcc g++ cmake build-essential python3-dev
             fonts-powerline exuberant-ctags clang)
-        check ${apps[*]}
-        ;;
-    tmux)
-        apps=(tmux)
-        check ${apps[*]}
-        ;;
-    all)
-        apps=(zsh curl wget vim gcc g++ cmake build-essential
+            check ${apps[*]}
+            ;;
+        tmux)
+            apps=(tmux)
+            check ${apps[*]}
+            ;;
+        all)
+            apps=(zsh curl wget vim gcc g++ cmake build-essential
             python3-dev fonts-powerline exuberant-ctags clang tmux)
-        check ${apps[*]}
-        ;;
+            check ${apps[*]}
+            ;;
     esac
 }
 
@@ -328,7 +328,7 @@ config_apt() {
             echo
             read -p "$(echo -e "请输入您的 Ubuntu 系统版本号（默认为18.04）: ")" ubuntu_version
 
-            if [[ $ubuntu_version == "" ]] 
+            if [[ $ubuntu_version == "" ]]
             then
                 ubuntu_version=18.04
             fi
@@ -416,54 +416,54 @@ install_select() {
         echo
         read -p "$(echo -e "请选择 [${magenta}1-10$none] 或按 ${magenta}ctrl + c$none 退出： ")" choose
         case $choose in
-        1)
-            install_after_check zsh
-            config_zsh
-            pause
-            ;;
-        2)
-            config_zsh
-            pause
-            ;;
-        3)
-            install_after_check vim
-            config_vim
-            pause
-            ;;
-        4)
-            config_vim
-            pause
-            ;;
-        5)
-            install_after_check tmux
-            config_tmux
-            pause
-            ;;
-        6)
-            config_tmux
-            pause
-            ;;
-        7)
-            install_miniconda
-            config_miniconda
-            config_pip
-            pause
-            ;;
-        8)
-            config_miniconda
-            pause
-            ;;
-        9)
-            config_pip
-            pause
-            ;;
-        10)
-            config_apt
-            pause
-            ;;
-        *)
-            error
-            ;;
+            1)
+                install_after_check zsh
+                config_zsh
+                pause
+                ;;
+            2)
+                config_zsh
+                pause
+                ;;
+            3)
+                install_after_check vim
+                config_vim
+                pause
+                ;;
+            4)
+                config_vim
+                pause
+                ;;
+            5)
+                install_after_check tmux
+                config_tmux
+                pause
+                ;;
+            6)
+                config_tmux
+                pause
+                ;;
+            7)
+                install_miniconda
+                config_miniconda
+                config_pip
+                pause
+                ;;
+            8)
+                config_miniconda
+                pause
+                ;;
+            9)
+                config_pip
+                pause
+                ;;
+            10)
+                config_apt
+                pause
+                ;;
+            *)
+                error
+                ;;
         esac
     done
 }
@@ -493,17 +493,17 @@ while :; do
     echo
     read -p "$(echo -e "请选择 [${magenta}1-2$none] 或按 ${magenta}ctrl + c$none 退出：")" choose
     case $choose in
-    1)
-        install_all
-        break
-        ;;
-    2)
-        install_select
-        break
-        ;;
-    *)
-        error
-        ;;
+        1)
+            install_all
+            break
+            ;;
+        2)
+            install_select
+            break
+            ;;
+        *)
+            error
+            ;;
     esac
 done
 
