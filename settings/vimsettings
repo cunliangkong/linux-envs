@@ -49,8 +49,8 @@ let g:ycm_complete_in_strings = 1
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " vim-airline
-"let g:airline_theme="luna" 
-let g:airline_powerline_fonts = 1   
+"let g:airline_theme="luna"
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
@@ -63,44 +63,44 @@ let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#whitespace#symbol = '!'
 
 " nerdtree\
-"map <F2> :NERDTreeToggle<CR>
-let NERDTreeChDirMode=1
-let NERDTreeShowBookmarks=1
-let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
-let NERDTreeWinSize=25
+        "map <F2> :NERDTreeToggle<CR>
+        let NERDTreeChDirMode=1
+        let NERDTreeShowBookmarks=1
+        let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
+        let NERDTreeWinSize=25
 
-" TAGLIST
-let Tlist_Auto_Open = 0
-let Tlist_Ctags_Cmd = "ctags"
-let Tlist_Show_One_File = 1
+        " TAGLIST
+        let Tlist_Auto_Open = 0
+        let Tlist_Ctags_Cmd = "ctags"
+        let Tlist_Show_One_File = 1
 
-" winmanager配置
-let g:NERDTree_title = 'NERD Tree'
-let g:winManagerWindowLayout = 'NERDTree|TagList'
+        " winmanager配置
+        let g:NERDTree_title = 'NERD Tree'
+    let g:winManagerWindowLayout = 'NERDTree|TagList'
 function! NERDTree_Start()
     exec 'NERDTree'
-endfunction
+    endfunction
 
-function! NERDTree_IsValid()
-    return 1
-endfunction
+    " function! NERDTree_IsValid()
+    "     return 1
+    " endfunction
 
-" 绑定F2到winmanager
-"nmap <silent> <F2> :WMToggle<CR>
-nmap <silent> <F2> :if IsWinManagerVisible() <BAR> WMToggle<CR> <BAR> else <BAR> WMToggle<CR>:q<CR> endif <CR>
+    " 绑定F2到winmanager
+    nmap <silent> <F2> :WMToggle<CR>
+    " nmap <silent> <F2> :if IsWinManagerVisible() <BAR> WMToggle<CR> <BAR> else <BAR> WMToggle<CR>:q<CR> endif <CR>
 
-"缩进指示线"
-let g:indentLine_char='┆'
-let g:indentLine_enabled = 1
+    "缩进指示线"
+    let g:indentLine_char='┆'
+    let g:indentLine_enabled = 1
 
-"autopep8设置"
-let g:autopep8_disable_show_diff=1
-autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
+    "autopep8设置"
+    let g:autopep8_disable_show_diff=1
+    autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
 
-" nerdcommenter
-let mapleader=','
-map <F4> <leader>ci <CR>
+    " nerdcommenter
+    let mapleader=','
+    map <F4> <leader>ci <CR>
 
-" auto-pairs
-let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"'}
+    " auto-pairs
+    let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"'}
 
