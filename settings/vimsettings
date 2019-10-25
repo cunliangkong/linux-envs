@@ -28,8 +28,8 @@ set encoding=utf-8
 set langmenu=en_US.UTF-8
 language message en_US.UTF-8
 let mapleader = "\<space>"
-nnoremap <leader>q :wqa
-nnoremap <leader>w :w
+nnoremap <leader>q :wqa<CR>
+nnoremap <leader>w :w<CR>
 
 " Advanced
 set ruler
