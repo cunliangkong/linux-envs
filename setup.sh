@@ -396,25 +396,19 @@ install_select() {
         echo
         echo " 1. 安装 & 配置 zsh"
         echo
-        echo " 2. 仅配置 zsh"
+        echo " 2. 安装 & 配置 vim"
         echo
-        echo " 3. 安装 & 配置 vim"
+        echo " 3. 安装 & 配置 tmux"
         echo
-        echo " 4. 仅配置 vim"
+        echo " 4. 安装 & 配置 miniconda3（包含 5,6 步骤）"
         echo
-        echo " 5. 安装 & 配置 tmux"
+        echo " 5. 配置 miniconda3"
         echo
-        echo " 6. 仅配置 tmux"
+        echo " 6. 切换 pip 源"
         echo
-        echo " 7. 安装 & 配置 miniconda3（包含 8,9 步骤）"
+        echo " 7. 切换 apt 源（需要管理员权限）"
         echo
-        echo " 8. 仅配置 miniconda3"
-        echo
-        echo " 9. 切换 pip 源"
-        echo
-        echo " 10. 切换 apt 源（管理员权限）"
-        echo
-        read -p "$(echo -e "请选择 [${magenta}1-10$none] 或按 ${magenta}ctrl + c$none 退出： ")" choose
+        read -p "$(echo -e "请选择 [${magenta}1-7$none] 或按 ${magenta}ctrl + c$none 退出： ")" choose
         case $choose in
             1)
                 install_after_check zsh
@@ -422,42 +416,30 @@ install_select() {
                 pause
                 ;;
             2)
-                config_zsh
-                pause
-                ;;
-            3)
                 install_after_check vim
                 config_vim
                 pause
                 ;;
-            4)
-                config_vim
-                pause
-                ;;
-            5)
+            3)
                 install_after_check tmux
                 config_tmux
                 pause
                 ;;
-            6)
-                config_tmux
-                pause
-                ;;
-            7)
+            4)
                 install_miniconda
                 config_miniconda
                 config_pip
                 pause
                 ;;
-            8)
+            5)
                 config_miniconda
                 pause
                 ;;
-            9)
+            6)
                 config_pip
                 pause
                 ;;
-            10)
+            7)
                 config_apt
                 pause
                 ;;
