@@ -28,8 +28,6 @@ set encoding=utf-8
 set langmenu=en_US.UTF-8
 language message en_US.UTF-8
 let mapleader = "\<space>"
-nnoremap <leader>q :wqa<CR>
-nnoremap <leader>w :w<CR>
 
 " Advanced
 set ruler
@@ -66,17 +64,17 @@ let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#whitespace#symbol = '!'
 
 " nerdtree
-nnoremap <leader>n <ESC>:NERDTreeToggle<CR>
+noremap <F2> <ESC>:NERDTreeToggle<CR>
 let NERDTreeChDirMode=1
 let NERDTreeShowBookmarks=1
 let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
 let NERDTreeWinSize=25
 
 " TAGLIST
+noremap <F3> <ESC>:TlistToggle<CR>
 let Tlist_Auto_Open = 0
 let Tlist_Ctags_Cmd = "ctags"
 let Tlist_Show_One_File = 1
-nnoremap <leader>t <ESC>:TlistToggle<CR>
 
 "缩进指示线"
 let g:indentLine_char='┆'
@@ -91,7 +89,17 @@ let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"'}
 
 " formatter
 let g:formatter_yapf_style = 'pep8'
-noremap <F3> :Autoformat<CR>
-noremap <leader>f :Autoformat<CR>
+
 au BufWrite * :Autoformat
 
+noremap <leader>q :wqa<CR>
+noremap <leader>w :w<CR>
+noremap <leader>n <ESC>:NERDTreeToggle<CR>
+noremap <leader>t <ESC>:TlistToggle<CR>
+noremap <leader>f :Autoformat<CR>
+noremap <leader>- :sp<CR>
+noremap <leader>\ :vsp<CR>
+noremap <leader>j <C-w>j
+noremap <leader>k <C-w>k
+noremap <leader>h <C-w>h
+noremap <leader>l <C-w>l
