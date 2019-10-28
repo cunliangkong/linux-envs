@@ -92,8 +92,9 @@ let g:formatter_yapf_style = 'pep8'
 
 au BufWrite * :Autoformat
 
-noremap <leader>q :wqa<CR>
 noremap <leader>w :w<CR>
+noremap <leader>x :wq<CR>
+noremap <leader>q :wqa<CR>
 noremap <leader>n <ESC>:NERDTreeToggle<CR>
 noremap <leader>t <ESC>:TlistToggle<CR>
 noremap <leader>f :Autoformat<CR>
