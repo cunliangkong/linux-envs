@@ -89,18 +89,35 @@ let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"'}
 
 " formatter
 let g:formatter_yapf_style = 'pep8'
+" au BufWrite * :Autoformat
 
-au BufWrite * :Autoformat
+" quick run
+map <F5> :call CompileRunGcc()<CR>
+func! CompileRunGcc()
+    exec "w"
+    if &filetype == 'c'
+    exec '!g++ % -o %<'
+    exec '!./%<'
+    elseif &filetype == 'cpp'
+    exec '!g++ % -o %<'
+    exec '!./%<'
+    elseif &filetype == 'python'
+    exec '!python %'
+    elseif &filetype == 'sh'
+    exec '!bash %'
+    endif
+    endfunc
 
-noremap <leader>w :w<CR>
-noremap <leader>x :wq<CR>
-noremap <leader>q :wqa<CR>
-noremap <leader>n <ESC>:NERDTreeToggle<CR>
-noremap <leader>t <ESC>:TlistToggle<CR>
-noremap <leader>f :Autoformat<CR>
-noremap <leader>- :sp<CR>
-noremap <leader>\ :vsp<CR>
-noremap <leader>j <C-w>j
-noremap <leader>k <C-w>k
-noremap <leader>h <C-w>h
-noremap <leader>l <C-w>l
+ " leader keys
+ noremap <leader>w :w<CR>
+ noremap <leader>x :wq<CR>
+ noremap <leader>q :wqa<CR>
+ noremap <leader>n <ESC>:NERDTreeToggle<CR>
+ noremap <leader>t <ESC>:TlistToggle<CR>
+ noremap <leader>f :Autoformat<CR>
+ noremap <leader>- :sp<CR>
+ noremap <leader>\ :vsp<CR>
+ noremap <leader>j <C-w>j
+ noremap <leader>k <C-w>k
+ noremap <leader>h <C-w>h
+ noremap <leader>l <C-w>l

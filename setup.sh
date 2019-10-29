@@ -40,7 +40,7 @@ check() {
     not_installed=()
     for app in $*
     do
-        dpkg --get-selections | grep $app > /dev/null
+        dpkg --get-selections | grep $app | grep -v deinstall > /dev/null
         if [[ $? -eq 1 ]]
         then
             not_installed[${#not_installed[*]}]=$app
