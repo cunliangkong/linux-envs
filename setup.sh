@@ -57,7 +57,7 @@ check_app() {
             ;;
         vim)
             apps=(vim gcc g++ cmake build-essential python3-dev
-            fonts-powerline exuberant-ctags clang)
+            fonts-powerline exuberant-ctags)
             check ${apps[*]}
             ;;
         tmux)
@@ -66,7 +66,7 @@ check_app() {
             ;;
         all)
             apps=(zsh curl wget vim gcc g++ cmake build-essential
-            python3-dev fonts-powerline exuberant-ctags clang tmux)
+            python3-dev fonts-powerline exuberant-ctags tmux)
             check ${apps[*]}
             ;;
     esac
