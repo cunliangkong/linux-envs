@@ -336,9 +336,10 @@ config_apt() {
             if [[ `echo ${!ver2name[*]} | grep -cw $ubuntu_version` -eq 1 ]]
             then
                 sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak
-                sudo cat ./settings/sources.list \
+                cat ./settings/sources.list \
                     | awk '{gsub(/<codename>/,"'"${ver2name[$ubuntu_version]}"'"); print $0}' \
-                    > /etc/apt/sources.list
+                    > /tmp/sources.list
+                sudo mv /tmp/sources.list /etc/apt/sources.list
                 break
             else
                 error
